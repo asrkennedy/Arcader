@@ -1,0 +1,69 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+.search-query.span3 {
+  float: right;
+  margin-top: 20px;
+}
+
+
+ul.nav li {
+  padding-right: 80px;
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+ul.nav li.scores {
+    padding-right: 150px;
+  }
+
+.navbar-inner {
+  background-color: #000;
+  color: #fff;
+}
+
+div.footer {
+  height: 20px;
+  background-color: #AD9AA1;
+}
+
+.container {
+  color: #000;
+}
+
+.logo a {
+  padding: 40px;
+  border: 1px solid #e0e0e0;
+  display: inline-block;
+  margin-left: 40px;
+  margin-top: 40px;
+  text-align: center;
+  background-color: #AD9AA1;
+  text-decoration: none;
+  color: #eee;
+}
+
+.logo a:hover, a:focus {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .container h2 {
+    float: left;
+    padding-left: 30px;
+    padding-right: 60px;
+  }
+
+
