@@ -66,4 +66,14 @@ div.footer {
     padding-right: 60px;
   }
 
+.login {
+  float: right;
+  padding-top: 10px;
+  padding-right: 40px;
+}
+
+.login a {
+  text-decoration: none;
+  color: #3e3e3e;
+}
 
