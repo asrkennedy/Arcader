@@ -6,27 +6,34 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    %header.navbar.navbar-fixed-top
-      %nav.navbar-inner
-        .container
-          %h2 Arcader
-          %ul.nav
+    %div.background
+      %header.navbar
+        %nav.navbar-inner
+          .container
+            %h2.header
+              = link_to "Arcader", games_path
             = form_tag games_path, :class => "navbar-search pull-right", :method => :get do
               = text_field_tag :name, nil, :class => "search-query span3", :placeholder => "Search"
-            %li.scores
-              = link_to "Scores", users_path(@users)
-            %li
-              = link_to "Users", users_path(@users)
-            %li
-              = link_to "Games", games_path(@games)
-      %div
-        %h1.logo
-          = link_to "Arcader Games", games_path
-      %div.login
-        %h4
-          = link_to "Login", login_path
-        %h4
-          = link_to "Sign Up", new_user_path
-    = yield
+            %ul.nav
+              %li
+                = link_to "Games", games_path
+              %li.break
+                = "|"
+              %li
+                = link_to "Users", users_path
+              %li.break
+                = "|"
+              %li.scores
+                = link_to "Scores", users_path
+        %div.logo
+          %h1.logo
+            = link_to "Arcader Games", games_path
+        %div.login
+          %h5.login
+            = link_to "Login", login_path
+          %br
+          %h5.login
+            = link_to "Sign Up", new_user_path
+      = yield
   %footer
     %div.footer
