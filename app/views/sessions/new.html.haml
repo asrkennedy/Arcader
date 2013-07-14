@@ -1,0 +1,12 @@
+!!!
+%div.user
+  %h1 Log in
+  = form_tag sessions_path do
+    %div.field
+      = label_tag :username, 'Username:'
+      = text_field_tag :username, params[:username]
+    %div.field
+      = label_tag :password, "Password:"
+      = password_field_tag :password
+    %div.actions
+      = submit_tag "Log in"

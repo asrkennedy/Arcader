@@ -1,6 +1,5 @@
 div.games {
-  background: #fff;
-  opacity: 0.92;
+  background-color:rgba(255,255,255,0.8);
   width: 850px;
   margin: auto;
   padding: 20px;
@@ -9,18 +8,84 @@ div.games {
   margin-top: 15px;
   text-align: center;
   padding-bottom: 10px;
-  height: 800px;
-
+  height: 650px;
+  text-align: center;
 }
 
 div.game {
   width: 200px;
-  float: left;
-  padding: 30px;
+  padding: 25px;
   margin: 10px;
   border: 2px solid #777;
   border-radius: 6px;
-  background-color: #e7d7e9;
-
-
+  background-color: #fff;
+  display: inline-block;
 }
+
+/*div.game:hover {
+  height: 250px;
+  word-wrap: break-word;
+  overflow: visible;
+}*/
+
+div.game_text {
+  /*max-height: 140px;*/
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+/*div.game_text:hover {
+  position: relative;
+  overflow: visible;
+  -webkit-transition: 0.5s ease;
+          transition: 0.5s ease;
+  word-wrap: break-all;
+  max-width: 200px;
+}*/
+
+div.image_tag {
+  height: 150px;
+  width: 150px;
+  margin: auto;
+}
+
+div.game_scores {
+  background-color:rgba(255,255,255,0.8);
+  width: 400px;
+  margin: 20px 20px 20px 167px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 6px 6px #111;
+  text-align: center;
+  padding-bottom: 10px;
+  height: 650px;
+  text-align: center;
+  float: left;
+}
+
+div.game_table {
+  background-color: #fff;
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-align: center;
+  padding-bottom: 10px;
+  height: 550px;
+  text-align: center;
+}
+
+div.game_table h3 {
+  margin-top: 0;
+}
+
+tr td.score_table {
+  padding: 40px;
+}
+
+
+
+
