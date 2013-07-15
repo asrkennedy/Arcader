@@ -3,11 +3,11 @@
   - @games.each do |game|
     %div.game
       %div.image_tag
-        = image_tag game.game_image.detail.url
+        = link_to image_tag(game.game_image), game_path(game)
       %div.game_text
         %h5
-          = game.name
-        = game.description
+          = link_to game.name, game_path(game)
+        = link_to game.description, game_path(game)
 %div.game_scores
   %div.game_table
     %h2
@@ -35,7 +35,7 @@
             %h4.left
               = image_tag user.user_image.thumb.url
             %h4.right
-              = link_to user.username, "users#show"
+              = link_to user.username, user_path(user)
               %br
 
 
