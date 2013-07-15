@@ -10,24 +10,32 @@
         = game.description
 %div.game_scores
   %div.game_table
-    %h3
-      Top Game Scores
-    %tr
-      - x = 0
-      - while x <= @games.count
-        - m = []
-        - m << Match.where(game_id: x.to_s)
-        - unless m.first.empty?
-          - w = []
-          - m.first.each do |match|
-            - w << match.winner
-          - winner_array = w.inject(Hash.new(0)){ |h,i| h[i] += 1; h}.max{ |a,b| a[1] <=> b[1]}
-          - user_id = winner_array[0]
-      %td
-        = Game.find(x).name
-      %td
-        = User.find(user_id).name
-      %td
-        = (winner_array[1].to_i)*20
-      %br
-        - x+= 1
+    %h2
+      = link_to "Top Game Scores", matches_path
+      - @games.each do |game|
+        %div.each_game_score
+          %h3= game.name
+          - top = top_scorer_for_game game
+          - if top.class == Array
+            %h4
+              Top Winner:
+              = User.find(top[0]).name
+            %h4
+              Top Score:
+              = top[1]*20
+          - else
+            %h4= top
+%div.current_users
+  %div.user_info
+    %h2
+      = link_to "Current Users", users_path
+      - User.all.each do |user|
+        %div.each_user
+          - if user.user_image != nil
+            %h4.left
+              = image_tag user.user_image.thumb.url
+            %h4.right
+              = link_to user.username, "users#show"
+              %br
+
+

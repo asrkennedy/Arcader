@@ -53,7 +53,7 @@ div.image_tag {
 
 div.game_scores {
   background-color:rgba(255,255,255,0.8);
-  width: 400px;
+  width: 380px;
   margin: 20px 20px 20px 167px;
   padding: 20px;
   border-radius: 5px;
@@ -82,10 +82,70 @@ div.game_table h3 {
   margin-top: 0;
 }
 
-tr td.score_table {
+div.game_table h2 a {
+  margin-top: 0;
+  text-decoration: none;
+  color: #4B93DB;
+}
+
+.score_table {
   padding: 40px;
 }
 
+div.each_game_score {
+  display: inline-block;
+  border-top: 1px solid #000;
+  min-width: 250px;
+  margin-top: 20px;
+  padding-top: 10px;
+}
 
+div.current_users {
+  background-color:rgba(255,255,255,0.8);
+  width: 380px;
+  margin: 20px 167px 20px 20px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 6px 6px #111;
+  text-align: center;
+  padding-bottom: 10px;
+  height: 650px;
+  text-align: center;
+  float: right;
+}
 
+div.user_info {
+  background-color: #fff;
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-align: center;
+  padding-bottom: 10px;
+  height: 550px;
+  text-align: center;
+}
 
+div.user_info h2 a {
+  margin-top: 0;
+  text-decoration: none;
+  color: #4B93DB;
+}
+
+div.each_user {
+    display: inline-block;
+  border-top: 1px solid #000;
+  min-width: 250px;
+  margin-top: 20px;
+  padding-top: 10px;
+  overflow: hidden;
+}
+
+div.each_user h4.left {
+  float: left;
+  }
+
+div.each_user h4.right {
+  float: right;
+  }
