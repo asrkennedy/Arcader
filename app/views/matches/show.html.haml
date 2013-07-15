@@ -1,0 +1,15 @@
+!!!
+%table
+  - 3.times do |row|
+    %tr
+      - 3.times do |cell|
+        %td
+          - unless render_move(@match, "#{row.to_s + cell.to_s}")
+            = link_to '|__|', move_match_path(id: @match.id, coord: "#{row.to_s + cell.to_s}")
+            / - make_move(@match, "#{row.to_s + cell.to_s}")
+          - else
+            = move.move_type
+
+
+
+          / - check_win
