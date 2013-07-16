@@ -5,10 +5,7 @@
       - 3.times do |cell|
         %td
           - unless render_move(@match, "#{row.to_s + cell.to_s}")
-            - if @match.last_move == nil
-              = link_to '|__|', @move.first_move(id: @match.id, coord: "#{row.to_s + cell.to_s}")
-            - else
-              = link_to '|__|', @move.move_for_match(id: @match.id, player: player, coord: "#{row.to_s + cell.to_s}")
+            = link_to '|__|', move_match_path(id: @match.id, coord: "#{row.to_s + cell.to_s}")
             / - make_move(@match, "#{row.to_s + cell.to_s}")
           - else
             = @match.moves.move_type

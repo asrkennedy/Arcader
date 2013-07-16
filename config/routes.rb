@@ -18,17 +18,19 @@ Arcader::Application.routes.draw do
     get '/signup', to: 'users#new'
 
     resources :users
-    resources :games do
-      get '/match', action: 'match', as: 'match', on: :member
-    end
+    resources :games
 
-    resources :matches do
+    # do
+    #   get '/match/new', action: 'match', as: 'match', on: :member
+    # end
+
+    resources :matches, except: [:new] do
+      get '/:game_id', action: 'new', on: :new, as: ''
       get '/move/:coord', action: 'move', as: 'move', on: :member
-
     end
-    # resources :moves
-    resources :sessions, only: [:create, :destroy]
 
+    resources :moves
+    resources :sessions, only: [:create, :destroy]
 
   # Sample resource route with options:
   #   resources :products do

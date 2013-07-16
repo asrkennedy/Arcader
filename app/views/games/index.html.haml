@@ -3,11 +3,12 @@
   - @games.each do |game|
     %div.game
       %div.image_tag
-        = link_to image_tag(game.game_image), match_game_path(game)
+        = link_to image_tag(game.game_image), new_match_path(game)
       %div.game_text
         %h5
-          = link_to game.name, match_game_path(game)
-        = link_to game.description, match_game_path(game)
+          = link_to game.name, new_match_path(game)
+        %p
+          = link_to game.description, new_match_path(game)
 %div.game_scores
   %div.game_table
     %h2
@@ -19,7 +20,8 @@
           - if top.class == Array
             %h4
               Top Winner:
-              = User.find(top[0]).name
+              - unless top[0] == nil
+                = User.find(top[0]).name
             %h4
               Top Score:
               = top[1]*20
