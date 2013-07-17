@@ -1,7 +1,7 @@
 module GameHelper
 
   def top_scorer_for_game(game)
-    winners = Match.where('game_id = ? AND winner != ?', game.id, nil).group_by(&:winner)
+    winners = Match.where('game_id = ? AND winner IS NOT NULL', 4).group_by(&:winner)
     if winners.size < 1
       return "No winners"
     end
@@ -11,7 +11,7 @@ module GameHelper
         biggest = winner
       end
     end
-    [biggest.first, biggest[1].size]
+    [biggest, biggest[1].size]
   end
 
 end

@@ -1,18 +1,25 @@
-!!!
 %table
-  - 3.times do |row|
-    %tr
-      - 3.times do |cell|
-        %td
-          - unless render_move(@match, "#{row.to_s + cell.to_s}")
-            - if @match.last_move == nil
-              = link_to '|__|', @move.first_move(id: @match.id, coord: "#{row.to_s + cell.to_s}")
+  - [[0,1,2], [3,4,5], [6,7,8]].each do |val|
+    - if (@match.whose_turn != false) && (@match.whose_turn.id != current_user.id)
+      - if @match.game_finished? == false
+        = image_tag("beautifulpug.jpg", size: '200x200')
+        %p Waiting for moves...
+    - elsif
+      %tr
+        - val.each do |grid_case|
+          %td
+            - unless render_move(@match, grid_case)
+              = link_to '|__|', move_match_path(id: @match.id, coord: grid_case)
             - else
-              = link_to '|__|', @move.move_for_match(id: @match.id, player: player, coord: "#{row.to_s + cell.to_s}")
-            / - make_move(@match, "#{row.to_s + cell.to_s}")
-          - else
-            = @match.moves.move_type
+              = @match.moves.where(move_square: grid_case).first.move_type
+  - if @match.squares.all?
+    %h4 Game Over
+    %h3 It's a draw!
+  - if @match.winning_game?
+    %h3 The winner is:
+    %h2
+      = @match.last_move.player.name
 
 
 
-          / - check_win
+

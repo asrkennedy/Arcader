@@ -9,5 +9,14 @@ module MatchHelper
     end
   end
 
+  def get_move_type match, grid_case
+    item = match.moves.where(move_square: grid_case).first
+    puts "my current item -> #{item}"
+    if item
+      puts item.move_type
+      item.move_type
+    end
+  end
+
 end
 

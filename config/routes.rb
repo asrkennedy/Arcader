@@ -24,8 +24,9 @@ Arcader::Application.routes.draw do
     #   get '/match/new', action: 'match', as: 'match', on: :member
     # end
 
-    resources :matches, except: [:new] do
-      get '/:game_id', action: 'new', on: :new, as: ''
+    resources :matches, except: [:new, :create] do
+      get '/game/:game_id', action: 'user', on: :collection, as: 'user'
+      get '/:game_id/opponent/:opponent_id', action: 'create', on: :collection, as: 'create'
       get '/move/:coord', action: 'move', as: 'move', on: :member
     end
 

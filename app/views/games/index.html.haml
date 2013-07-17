@@ -3,12 +3,12 @@
   - @games.each do |game|
     %div.game
       %div.image_tag
-        = link_to image_tag(game.game_image), new_match_path(game)
+        = link_to image_tag(game.game_image), user_matches_path(game)
       %div.game_text
         %h5
-          = link_to game.name, new_match_path(game)
+          = link_to game.name, user_matches_path(game)
         %p
-          = link_to game.description, new_match_path(game)
+          = link_to game.description, user_matches_path(game)
 %div.game_scores
   %div.game_table
     %h2

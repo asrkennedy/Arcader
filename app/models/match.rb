@@ -11,12 +11,16 @@ class Match < ActiveRecord::Base
   end
 
   def current_move_type
-    return 'X' if moves.empty=
+    return 'X' if moves.empty?
     last_move.move_type == 'X' ? 'O' : 'X'
   end
 
   def whose_turn
-    player1 == last_move.player ? player2 : player1
+    if last_move == nil
+      false
+    else
+      player1 == last_move.player ? player2 : player1
+    end
   end
 
   def winning_lines
@@ -25,13 +29,11 @@ class Match < ActiveRecord::Base
 
   def winning_game?
     winning_lines.detect do |winning_line|
-      winning_line.map{|e| moves_made_array[e].value}
-    end
+      line = winning_line.map{|e| squares[e]}
+     line.any? && line.uniq.size == 1
+   end
   end
 
-    def winning_moves
-      [[1,2,3], [4,5,6]]
-    end
 
   def empty_square?(move_square)
     self.squares[move_square].nil?
@@ -47,7 +49,28 @@ class Match < ActiveRecord::Base
   end
 
   def game_finished?
-    winning_game? || moves_made_array.all?
+    winning_game? || squares.all?
+  end
+
+ def match_winner
+   last_move.player
+  end
+
+  def match_loser
+    last_move.player == player1 ? player2 : player1
+  end
+
+  def calculate_if_is_finished!
+    if game_finished?
+        self.winner = match_winner.id
+        self.loser = match_loser.id
+        self.save!
+    else
+        squares.all?
+        self.winner = nil
+        self.loser = nil
+        self.save!
+    end
   end
 
 end

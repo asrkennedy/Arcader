@@ -7,6 +7,5 @@ class MovesController < ApplicationController
     @move = Move.find(params[:id])
   end
 
-
 end
 
