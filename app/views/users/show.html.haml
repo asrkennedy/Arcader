@@ -1,0 +1,6 @@
+- if current_user
+  -if @user.join_challenge.size > 1
+    - @user.join_challenge.each do |challenge|
+      = link_to "You've been challenged!", matches_path(challenge.id)
+  -else
+    = link_to "You've been challenged!", matches_path(@user.join_challenge.first.id)

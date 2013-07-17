@@ -19,17 +19,14 @@ class UsersController < ApplicationController
     redirect_to user_path
   end
 
-  def create
-    @user = User.create!(params[:user])
-
-    respond_to do |format|
-      if @user.save
-        format.html {redirect_to @user, notice: "Welcome to Arcader! Let's play!" }
-        format.json { render json: @user, status: :created, location: @user}
-      else
-        format.html { render action: "new"}
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+ def create
+    @user = User.new(params[:user])
+    if @user.save
+      session[:user_id] = @user.id
+      flash[:welcome] = "Thanks for registering with Arcader! You can now access our site!"
+      redirect_to root_path
+    else
+      render 'new'
     end
   end
 
@@ -42,4 +39,5 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to user_path
   end
+
 end

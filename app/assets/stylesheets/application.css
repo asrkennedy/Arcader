@@ -78,6 +78,11 @@ div.logo {
     display: inline-block;
 }
 
+h1.logo {
+  width: 500px;
+  margin: 0px;
+}
+
 .logo a {
   padding: 40px;
   border: 1px solid #000;
@@ -117,14 +122,14 @@ div.logo {
 
 .login {
   float: right;
-  padding-top: 40px;
+  padding-top: 20px;
   padding-right: 40px;
   text-align: right;
   font-family: 'Helvetica Neue', Helvetica;
   font-size: 16px;
 }
 
-h5.login {
+h5.login, h5.logout {
   border: 1px solid #000;
   border-radius: 6px;
   padding: 5px;
@@ -148,7 +153,7 @@ h5.login {
   background-image: linear-gradient(to bottom, #CC97B1, #BB7597);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,start Colorstr=#CC97B1, endColorstr=#BB7597);
 }
 
-.login a {
+.login a, .logout a {
   text-decoration: none;
   color: #eee;
   vertical-align: middle;
