@@ -1,8 +1,18 @@
-/ %div.gameboard
-/   - tic_tac_toe_places
-/   - tic_tac_tow_columns
-/   - @cpu = rand() > 0.5 ? 'X' : 'O'
-/   - @user = @cpu == 'X' ? 'O' : 'X'
-/   - @cpu_name = "Computer"
-/   - turn
-
+-# %div.game_scores
+-#   %div.game_table
+-#     %h2
+-#       = link_to "Top Game Scores", matches_path
+-#       - @games.each do |game|
+-#         %div.each_game_score
+-#           %h3= game.name
+-#           - top = top_scorer_for_game game
+-#           - if top.class == Array
+-#             %h4
+-#               Top Winner:
+-#               - unless top[0] == nil
+-#                 = User.find(top[0]).name
+-#             %h4
+-#               Top Score:
+-#               = top[1]*20
+-#           - else
+-#             %h4= top

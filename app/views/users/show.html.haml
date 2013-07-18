@@ -1,6 +1,49 @@
-- if current_user
-  -if @user.join_challenge.size > 1
-    - @user.join_challenge.each do |challenge|
-      = link_to "You've been challenged!", matches_path(challenge.id)
-  -else
-    = link_to "You've been challenged!", matches_path(@user.join_challenge.first.id)
+- if current_user && current_user == @user
+  %div.challenge
+    - unless @user.join_challenge == nil
+      = link_to "You've been challenged!", match_path(@user.join_challenge.id)
+    - else
+      %h4 You have no challenges!
+- else
+  %div.challenge{style: 'visibility: hidden;'}
+%div.user_index
+  = image_tag @user.user_image.detail.url
+  %h2.name
+    Name:
+    = @user.name
+  %br
+  %h4
+    Username:
+    = @user.username
+  %h4
+    Gender:
+    = @user.gender
+  %h4
+    Bio:
+    = @user.bio
+  %p= link_to 'Edit User', edit_user_path(@user)
+%div.past_matches
+  %table
+    %thead
+      %h2
+        Wins and Losses
+      %tr
+        %h4
+          You have played
+          = @user.user_matches_versus.size
+          matches.
+      %tr
+        %h4
+          You have won
+          = @user.matches_won
+          matches.
+      %tr
+        %h4
+          You have lost
+          = @user.matches_lost
+          matches.
+      %tr
+        %h4
+          You have not completed
+          = @user.games_not_completed.size
+          matches.

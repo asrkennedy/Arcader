@@ -1,19 +1,22 @@
 module GameHelper
 
   def top_scorer_for_game(game)
-    winners = Match.where('game_id = ? AND winner IS NOT NULL', 4).group_by(&:winner)
-    if winners.size < 1
-      return "No winners"
-    end
-    biggest = winners.first
-    winners.each do |winner, wins|
-      if wins.size > biggest.size
-        biggest = winner
-      end
-    end
-    [biggest, biggest[1].size]
+    winners = Match.where('game_id = ? AND winner IS NOT NULL', game.id).group_by(&:winner)
+    return "No winners" if winners.size < 1
+    keys, values = winners.keys, winners.map{ |k,v| v.size}
+    top_scorer_id = keys[values.index(values.max)]
+    top_scorer_matches = values.max
+    [top_scorer_id, top_scorer_matches]
   end
 
+  def authenticated_link_to link_content, link_url, user
+    if user
+
+      link_to link_content, link_url
+    else
+      link_content
+    end
+  end
 end
 
 

@@ -12,9 +12,6 @@
  *= require_tree .
  */
 
-header.navbar {
-  margin-top: -250px;
-}
 
 h2.header a {
   color: #000;
@@ -31,7 +28,14 @@ h2.header a:hover, a:focus {
 }
 
 body {
-  min-height: 1500px;
+  background-image: url("/images/DonkeyKong.jpg");
+}
+
+div.container {
+  margin: 0 auto;
+  width: 960px;
+  color: #000;
+  padding-bottom: 40px;
 }
 
 ul.nav li{
@@ -68,10 +72,6 @@ div.footer {
   background-color: #CC97A9;
 }
 
-.container {
-  color: #000;
-}
-
 div.logo {
     width: 500px;
     margin: 0px;
@@ -87,8 +87,6 @@ h1.logo {
   padding: 40px;
   border: 1px solid #000;
   display: inline-block;
-  margin-left: 40px;
-  margin-top: 35px;
   border-radius: 4px;
   text-align: center;
   background-color: #CC97A9;
@@ -116,14 +114,11 @@ h1.logo {
     float: left;
     padding-left: 20px;
     padding-right: 40px;
-    border-right: 3px solid #000;
     margin-top: 15px;
   }
 
 .login {
   float: right;
-  padding-top: 20px;
-  padding-right: 40px;
   text-align: right;
   font-family: 'Helvetica Neue', Helvetica;
   font-size: 16px;
@@ -134,12 +129,13 @@ h5.login, h5.logout {
   border-radius: 6px;
   padding: 5px;
   margin: 4px;
+  margin-right: 0px;
   background-color: #CC97A9;
   text-align: center;
   height: 35px;
   width: 70px;
   padding-top: 15px;
-   color: #eee;
+  color: #eee;
   text-shadow: 1px 1px #777777;
   -webkit-box-shadow: inset 0 0 10px #000;
   -moz-box-shadow: inset 0 0 10px #000;
@@ -151,6 +147,35 @@ h5.login, h5.logout {
   background-image: -ms-linear-gradient(top, #CC97B1, #BB7597);
   background-image: -o-linear-gradient(top, #CC97B1, #BB7597);
   background-image: linear-gradient(to bottom, #CC97B1, #BB7597);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,start Colorstr=#CC97B1, endColorstr=#BB7597);
+  float: right;
+}
+
+div.welcome h5 {
+  background-color:rgba(255,255,255,1);
+  width: 200px;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 6px 6px #111;
+  padding-bottom: 10px;
+  text-align: left;
+  margin-bottom: 20px;
+  color: #555;
+  vertical-align: middle;
+}
+
+.welcome h5 a {
+  color: #555;
+  text-shadow: none;
+}
+
+.welcome h5 a:hover, a:focus {
+  color: #888;
+  text-shadow: none;
+}
+
+.logout .welcome a {
+  color: #555;
 }
 
 .login a, .logout a {
@@ -165,10 +190,7 @@ h5.login, h5.logout {
   color: #000;
 }
 
-div.background {
-  background-image: url("/images/DonkeyKong.jpg");
-  opacity: 0.85;
-  padding-top: 250px;
-  height: 1500px;
+p.user {
+  color: #eee;
 }
 

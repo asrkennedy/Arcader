@@ -4,7 +4,7 @@
     - @users.each do |user|
       - if user.user_image != nil
         - if user != current_user
-          %div.each_user
+          %div.user_list
             %h4.left
               = image_tag user.user_image.thumb.url
             %h4.right

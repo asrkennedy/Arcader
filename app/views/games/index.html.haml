@@ -3,16 +3,16 @@
   - @games.each do |game|
     %div.game
       %div.image_tag
-        = link_to image_tag(game.game_image), user_matches_path(game)
+        = authenticated_link_to image_tag(game.game_image), user_matches_path(game), current_user
       %div.game_text
         %h5
-          = link_to game.name, user_matches_path(game)
+          = authenticated_link_to game.name, user_matches_path(game), current_user
         %p
-          = link_to game.description, user_matches_path(game)
+          = authenticated_link_to game.description, user_matches_path(game), current_user
 %div.game_scores
   %div.game_table
     %h2
-      = link_to "Top Game Scores", matches_path
+      = "Top Game Scores"
       - @games.each do |game|
         %div.each_game_score
           %h3= game.name
@@ -21,7 +21,9 @@
             %h4
               Top Winner:
               - unless top[0] == nil
-                = User.find(top[0]).name
+                = User.find(top.first).name
+                %br
+                = image_tag (User.find(top.first)).user_image.thumb.url
             %h4
               Top Score:
               = top[1]*20
@@ -31,13 +33,12 @@
   %div.user_info
     %h2
       = link_to "Current Users", users_path
-      - User.all.each do |user|
-        %div.each_user
-          - if user.user_image != nil
-            %h4.left
-              = image_tag user.user_image.thumb.url
-            %h4.right
-              = link_to user.username, user_path(user)
-              %br
+    - User.all.each do |user|
+      %div.each_user
+        - if user.user_image != nil
+          %h4.left
+            = image_tag user.user_image.thumb.url
+          %h4.right
+            = link_to user.username, user_path(user)
 
 

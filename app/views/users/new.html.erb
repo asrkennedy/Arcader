@@ -12,6 +12,14 @@
   </div>
   <%end%>
   <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
     <%= f.label :username %>
     <%= f.text_field :username %>
   </div>
@@ -23,6 +31,15 @@
     <%= f.label :confirm_password %>
     <%= f.password_field :password_confirmation %>
   </div>
+  <div class="field">
+    <%= f.label :bio %>
+    <%= f.text_field :bio %>
+  </div>
+  <div>
+    <%= f.file_field :user_image %>
+    <%= f.label :user_image %>
+  </div>
+
   <div class="actions"><%= f.submit %> </div>
   <% end %>
 </div>

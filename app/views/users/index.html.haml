@@ -1,0 +1,14 @@
+%div.user_index
+  %h2
+    = link_to "Current Users", users_path
+    - User.all.each do |user|
+      %div.each_user
+        - if user.user_image != nil
+          %h4.left
+            = image_tag user.user_image.thumb.url
+          %h4.right
+            - if current_user == user
+              = user.username
+            - else
+              = user.username
+              %br

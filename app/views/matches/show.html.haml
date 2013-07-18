@@ -1,31 +1,46 @@
 %div.match_board
   - unless @match.game_finished?
+    - if current_user.id == @match.player1_id
+      %h3
+        Welcome
+        = current_user.name
+      %h4
+        Your move is an 'X'
+    - else
+      %h3
+        Welcome
+        = current_user.name
+      %h4
+        Your move is an 'O'
+    - my_turn = !((@match.whose_turn != false) && (@match.whose_turn.id != current_user.id))
+    - unless my_turn
+      %div.pug
+        = image_tag("beautifulpug.jpg", size: '200x200')
+        %h4.pug Waiting for moves...
+      :javascript
+        setTimeout("location.reload(true);", 10000)
     %table.match
       - [[0,1,2], [3,4,5], [6,7,8]].each do |val|
-        - if (@match.whose_turn != false) && (@match.whose_turn.id != current_user.id)
-          %div.pug
-            = image_tag("beautifulpug.jpg", size: '200x200')
-            %p Waiting for moves...
-        - elsif
-          %tr
-            - val.each do |grid_case|
-              %td
-                %h1.match
-                  - unless render_move(@match, grid_case)
+        %tr
+          - val.each do |grid_case|
+            %td
+              %h1.match
+                - unless render_move(@match, grid_case)
+                  -  if my_turn
                     = link_to '|__|', move_match_path(id: @match.id, coord: grid_case)
-                  - else
-                    = @match.moves.where(move_square: grid_case).first.move_type
-    :javascript
-      setTimeout("location.reload();", 3000)
+                  -else
+                    |__|
+                - else
+                  = @match.moves.where(move_square: grid_case).first.move_type
   -else
     - if @match.squares.all?
       %h4 Game Over
       %h3 It's a draw!
     - if @match.winning_game?
-      %h3 The winner is:
-      %h2
+      %h3 The winner is...
+      %h2.winner
+        = image_tag @match.last_move.player.user_image.detail.url
         = @match.last_move.player.name
-
 
 
 
