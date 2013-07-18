@@ -1,49 +1,52 @@
 - if current_user && current_user == @user
-  %div.challenge
-    - unless @user.join_challenge == nil
-      = link_to "You've been challenged!", match_path(@user.join_challenge.id)
-    - else
-      %h4 You have no challenges!
+  %div.challenge_box
+    %div.challenge
+      - unless @user.join_challenge == nil
+        = link_to "You've been challenged!", match_path(@user.join_challenge.id)
+      - else
+        %h4 You have no challenges!
 - else
   %div.challenge{style: 'visibility: hidden;'}
-%div.user_index
-  = image_tag @user.user_image.detail.url
-  %h2.name
-    Name:
-    = @user.name
-  %br
-  %h4
-    Username:
-    = @user.username
-  %h4
-    Gender:
-    = @user.gender
-  %h4
-    Bio:
-    = @user.bio
-  %p= link_to 'Edit User', edit_user_path(@user)
-%div.past_matches
-  %table
-    %thead
-      %h2
-        Wins and Losses
-      %tr
-        %h4
-          You have played
-          = @user.user_matches_versus.size
-          matches.
-      %tr
-        %h4
-          You have won
-          = @user.matches_won
-          matches.
-      %tr
-        %h4
-          You have lost
-          = @user.matches_lost
-          matches.
-      %tr
-        %h4
-          You have not completed
-          = @user.games_not_completed.size
-          matches.
+%div.user_index_box
+  %div.user_index
+    = image_tag @user.user_image.detail.url
+    %h2.name
+      Name:
+      = @user.name
+    %br
+    %h4
+      Username:
+      = @user.username
+    %h4
+      Gender:
+      = @user.gender
+    %h4
+      Bio:
+      = @user.bio
+    - if current_user == @user
+      %p= link_to 'Edit User', edit_user_path(@user)
+  %div.past_matches
+    %table
+      %thead
+        %h2
+          Wins and Losses
+        %tr
+          %h4
+            Matches played:
+            = @user.user_matches_versus.size
+        %tr
+          %h4
+            Matches won:
+            = @user.matches_won
+        %tr
+          %h4
+            Matches lost:
+            = @user.matches_lost
+        %tr
+          %h4
+            Incomplete matches:
+            = @user.games_not_completed.size
+        %tr
+          %h3
+            User score:
+            = @user.user_score

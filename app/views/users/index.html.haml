@@ -7,8 +7,5 @@
           %h4.left
             = image_tag user.user_image.thumb.url
           %h4.right
-            - if current_user == user
-              = user.username
-            - else
-              = user.username
-              %br
+            = link_to user.username, user_path(user)
+            %br

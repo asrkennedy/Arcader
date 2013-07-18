@@ -46,4 +46,8 @@ def games_not_completed
     end
 end
 
+def user_score
+  matches_won*20
+end
+
 end

@@ -1,5 +1,5 @@
-!!!
 %div.games
+  %h2.title Arcader Games
   - @games.each do |game|
     %div.game
       %div.image_tag
@@ -31,7 +31,7 @@
             %h4= top
 %div.current_users
   %div.user_info
-    %h2
+    %h2.user_info
       = link_to "Current Users", users_path
     - User.all.each do |user|
       %div.each_user
