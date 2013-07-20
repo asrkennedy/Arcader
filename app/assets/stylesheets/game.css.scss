@@ -66,7 +66,7 @@ div.game_scores, div.current_users {
 div.current_users {
   float: right;
   max-height: 750px;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 div.game_table {
