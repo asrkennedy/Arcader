@@ -9,7 +9,7 @@
   %div.challenge{style: 'visibility: hidden;'}
 %div.user_index_box
   %div.user_index
-    = image_tag @user.user_image.detail.url
+    = image_tag @user.user_image.detail.url, onerror="this.src='user_default.png';"
     %h2.name
       Name:
       = @user.name
