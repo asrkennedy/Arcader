@@ -37,7 +37,7 @@
       %div.each_user
         - if user.user_image != nil
           %h4.left
-            = image_tag user.user_image.thumb.url, onerror="this.src='user_default.png';"
+            = image_tag user.user_image.thumb.url
           %h4.right
             = link_to user.username, user_path(user)
 
