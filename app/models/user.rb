@@ -50,4 +50,8 @@ def user_score
   matches_won*20
 end
 
+def role?(role)
+ self.role == role
+end
+
 end
