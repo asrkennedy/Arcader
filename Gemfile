@@ -21,6 +21,7 @@ gem 'nested_form'
 gem 'seed_dump'
 gem 'bcrypt-ruby', '~>3.0.0'
 gem 'haml'
+gem "fog", "~> 1.3.1"
 
 group :development do
   gem 'pry-rails'
