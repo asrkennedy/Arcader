@@ -57,16 +57,13 @@ div.game_scores, div.current_users {
   border-radius: 5px;
   box-shadow: 0px 2px 6px 6px #111;
   text-align: center;
-  padding-bottom: 10px;
-  text-align: center;
   float: left;
   min-height: 600px;
 }
 
 div.current_users {
   float: right;
-  max-height: 750px;
-  overflow: scroll;
+  max-height: 600px;
 }
 
 div.game_table {
@@ -118,7 +115,9 @@ div.user_info {
   margin-top: 20px;
   border-radius: 5px;
   text-align: center;
-  padding-bottom: 10px;
+  max-height: 550px;
+  overflow: scroll;
+  padding-bottom: 5px;
 }
 
 h2.user_info {
@@ -131,7 +130,7 @@ h2.user_info {
 }
 
 div.each_user {
-    display: inline-block;
+  display: inline-block;
   border-top: 1px solid #000;
   min-width: 250px;
   margin-top: 20px;
